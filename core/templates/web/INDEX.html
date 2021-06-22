@@ -1,0 +1,291 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block contenido %}
+
+  
+{% block css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+{% endblock css %}
+<body onload="onLoad()">
+
+<!--CARROUSEL-->
+  <hr></hr>
+  <div class= "container">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'app/img/gatitopint.jpg ' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'app/img/gatito2.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'app/img/leon.jpg ' %}" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+      </a>
+    </div>
+  </div>
+
+  <hr></hr>
+  <h1>Quienes somos?</h1>
+  <div class="container">
+    <div class="row"></div>
+    <h2>Grupo Zero </h2>
+    <hr>
+    <div class="p2"> 
+      Un grupo de artistas plásticos dedicados a la pintura, escultura, orfebrería, tejido y otras expresiones 
+      artísticas que tienen como fin exponer sus trabajos. 
+    </div>
+    <img class="col-md-5 col-sm-6 col-lg-3"src="{% static 'app/img/quienessomos.jpg' %}" width="260" height="200" alt="joven viendo un cuadro">
+    <a class="btn btn-info" href="pinturas.html" role="button">Nuestros Trabajos</a>
+  </div>
+
+  <!--API DEL CLIMA-->
+  <hr></hr>
+  <h1>Api del clima</h1>
+  <div class="container">
+    <div id="loader" class="loader">Loading...</div>
+    <div id="container" class="contaier">
+        <div class="block">
+            <div id="location"></div>
+            <div id="date"></div>
+            <div id="description"></div>
+        </div>
+        <div class="block">
+            <div class="information-container">
+                Temperatura
+                <div class="information" id="temperature"></div>
+            </div>
+            <div class="information-container">
+                Humedad
+                <div class="information" id="humidity"></div>
+            </div>
+            <div class="information-container">
+                Presion
+                <div class="information" id="pressure"></div>
+            </div>
+            <button type="button" class="btn btn-info btn-block" onclick="findMe()"><h3>Mostrar ubicacion actual</h3></button>
+        <!--Geolocalizacio-->
+            <div id="map" ></div>
+            <div></div>
+            <script>
+                function findMe(){
+                    var output = document.getElementById('map');
+                    //velifica si soporta geolocalizacion
+                    if (navigator.geolocation) {
+                        output.innerHTML = "<p> Tu navegador soporta geolocalizacion</p>"
+                    }else{
+                        output.innerHTML = "<p> Tu navegador no soporta geolocalizacion</p>"
+                    }
+                    //obtenemos longitud y latitut
+                    function localizacion(posicion){
+                        var latitude = posicion.coords.latitude;
+                        var longitude = posicion.coords.longitude;
+                        output.innerHTML = "<p>latitud: "+latitude+"<br>longitud: "+longitude+"</p>";
+                    }
+                    function error(){
+                        output.innerHTML= "<p>No se pudo obtener la ubicacion</p>"
+                    };
+                    navigator.geolocation.getCurrentPosition(localizacion,error )
+                }
+            </script>
+        </div>
+    </div>
+    <script src="js/app-del-clima.js"></script>
+  </div>
+
+<!--CARDS SOBRE NUESTROS CUATROS TEMAS *PINTURAS, ORFEBRERIA, TEJIDO,-->
+  <hr></hr>
+
+  <h1>Nuestras expresiones artísticas</h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+      <div class="rounded float-right w-50">
+        <div class="col mb-2">
+          <div class="card">
+            <img src="{% static 'app/img/escultura.webp' %}" 
+            class="card-img-top" alt="escultura">
+            <div class="card-body">
+              <h5 class="card-title">Escultura</h5>
+              <p class="card-text">La Escultura tiene como finalidad expresar la belleza y consiste en el arte de moldear el barro, tallar en piedra, maderas o cualquier otro material, figuras en volumen El escultor, tal como se denomina a la persona que se encarga de llevar a cabo este arte, se expresará creando volumen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mb-2">
+        <div class="card">
+          <img src="{% static 'app/img/tejido.jpg' %}" 
+          class="card-img-top" alt="tejido">
+          <div class="card-body">
+            <h5 class="card-title">Tejido de artesanal</h5>
+            <p class="card-text">Es una de las actividades artesanas más antiguas de la humanidad, que consiste en entrelazar hilos verticales y horizontales para crear un tejido. Desde tiempos antiguos los pueblos fueron desarrollando y transmitiendo diferentes técnicas y soportes donde colocar los hilos para tejer de manera artesanal</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mb-2">
+        <div class="card">
+          <img src="{% static 'app/img/pintura.jpg' %}" 
+          class="card-img-top" alt="Pintura">
+          <div class="card-body">
+            <h5 class="card-title">Pintura</h5>
+            <p class="card-text">La pintura artística es una representación gráfica de la utilización de pigmentos y/u otras sustancias para la creación de una obra visual.La pintura se lleva a cabo con elementos, en general, a través de pinceles y brochas, incluso se realiza usando el cuerpo humano.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mb-2">
+        <div class="card">
+          <img src="{% static 'app/img/orfebreria.jpg' %}" 
+          class="card-img-top" alt="Orfebrería">
+          <div class="card-body">
+            <h5 class="card-title">Orfebrería</h5>
+            <p class="card-text"> La orfebrería es una actividad manual que lleva a cabo un profesional especializado en la materia y que consiste en labrar objetos o utensilios hechos en materiales como el oro, la plata, aleaciones y otros metales preciosos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--SECCION DE NOTICIAS-->
+  <hr></hr>
+  <h1>Noticias de Arte </h1>
+  <div class="container">
+    <h2>Has click en las imágenes</h2>
+    <form class="form-inline">
+      <div class="col mb-2 col-lg-6">
+        <a href="#myText2" data-toggle="collapse">
+          <img class="img-responsive card-img-top" src="{% static 'app/img/hijaynietadejose.jpg' %}"
+          class="col-md-6 mb-3">
+        </a>
+          <div id="myText2" class="collapse">
+          <h6 style="text-align: center"><h4>Hija y nieta de José Balmes y Gracia Barrios forman colección de sus obras y proyectan museo</h4><br/>Todo sigue igual en el taller que José Balmes y Gracia Barrios compartían en su casa de Ñuñoa. Los pinceles y los atriles están en el mismo sitio, los lienzos gigantes apoyados contra el muro. Sólo falta su presencia. El pintor que llegó a Chile a bordo del Winnipeg a los 12 años, refugiado de la Guerra Civil española, falleció en 2016; su esposa, la artista e hija del escritor Eduardo Barrios, tiene 92 años y dejó de pintar. El deterioro físico no es exactamente la razón. “De salud se mantiene muy bien, pero su percepción de la realidad es distinta hoy, vive en un mundo de fantasía. Está feliz y contenta, pero su cabeza está en otro planeta”, cuenta con tranquilidad su única hija, la artista Concepción Balmes Barrios (1957).</h6>
+          </div>
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <a href="#myText4" data-toggle="collapse">
+          <img class="img-responsive card-img-top" src="{% static 'app/img/roserbru.webp' %}" class="card-img-top"
+          class="col-md-6 mb-3">
+        </a>
+          <div id="myText4" class="collapse">
+          <h6 style="text-align: center"><h4>La obra de Roser Bru se integra al Museo Reina Sofía de Madrid</h4><br/>Dedicado al arte moderno y contemporáneo, el centro cultural adquirió seis grabados de la artista de 97 años, a través de su familia y Galería Vala. Las piezas forman parte de la serie Made in Spain, hecha en 1965. “Para nosotros es un gran honor”, dice su hija Agna Aguadé.</h6>
+          </div>
+      </div> 
+    </form>
+
+    <form class="form-inline">   
+      <div class="col-md-6 mb-2">
+        <a href="#myText3" data-toggle="collapse">
+          <img class="card-img-top" src="{% static 'app/img/pinturarupestre.jpg' %}" 
+          class="col-md-6 mb-3 ">
+        </a>
+          <div id="myText3" class="collapse">
+          <h6 style="text-align:center"><h4>Inauguramos la expo Premios Nacionales y Artistas Consagrados (Descuentos especiales)</h4><br/>La exposición cuenta con importantes obras de los Premios Nacionales de Artes Plásticas José Balmes y Gracia Barrios. y más de veinte grabados de Roberto Matta, de la seria Hom’mere que según la critica, es la obra gráfica mejor lograda del artista chileno con mayor reconocimiento internacional.
+            El sábado 7 de septiembre, al mediodía, se dará una charla sobre las obras expuestas, sus artistas y su repercusión en el mercado del arte nacional e internacional. La obras están a la venta y tienen importantes descuentos para los asistentes.</h6>
+          </div>   
+      </div>     
+      
+      <div class="col-md-6 mb-2">
+        <a href="#myText5" data-toggle="collapse">
+          <img class="img-responsive card-img-top" src="{% static 'app/img/galeriaVALA.jpg' %} "  class="card-img-top"
+          class="col-md-6 mb-3">
+                </a>
+          <div id="myText5" class="collapse">
+            <h6 style="text-align:center"><h4>Galería VALA y Muebles Pura Sangre abren exposición en Edificio Alonso</h4><br/>Galería de arte VALA y Muebles Pura Sangre crearon una alianza especial para inaugurar una singular exposición de arte y diseño interior, protagonizada por Roberto Matta, Mario Matta y Gordon Matt.
+              La muestra se presentó en el Edificio Alonso (Alonso de Cordova 3788. Vitacura) y contó con una extraordinaria asistencia: artistas, coleccionistas, público en general. Amantes del arte todos.
+              La exposición contó con más de 20 piezas de Roberto Matta, pertenecientes a las series Hom’mere y L’Arc Obscur des Heures. Asimismo, se exhibieron muebles de Mario Matta e intervenciones de Gordon Matta.</h6>
+          </div>
+      </div> 
+    </form>  
+  </div>
+
+
+  <!--DEJAR COMENTARIO-->
+  <hr></hr>
+  <h1>Registro</h1>
+  <div class="container">
+    <form method="GET" name="comentario">
+      <div class="form_group">
+        <label for="Documento" class="custom-select-sm">Documento</label>
+        <select id="Documento" name="Documento" class="form-control" required>
+        <option value>Seleccione su documento</option>
+        <option value="RUT">RUT</option>
+        <option value="PASAPORTE">PASAPORTE</option>
+        </select>
+      </div>
+
+      <content>
+      <div id="wrapper" >
+        <p>&nbsp;</p>
+          <div class="form_group">
+            <label for="rut">Rut sin puntos con guión</label>
+            <span class="form_control" id="sizing-addon1"></span>
+            <input autocomplete="nope" type="text" class="form-control" placeholder="xxxxxxxx-x" aria-describedby="sizing-addon1" id="txt_rut">
+          </div>
+          <div class="btn btn-default btn-lg"></div>
+          <div class="text-alert">
+          <p class="text-info" id="msgerror"></p>
+          </div>
+
+          <div class="form_group">
+          <label for="pasaporte">Nro. pasaporte: </label>
+          <input type="number" class="form_control" name="pasaporte" id="pasaporte" placeholder="Ingresa numero de Documento"/>
+          </div> 
+        
+          <div class="form_group">
+          <label for="name"> Nombre completo:</label>
+          <input type="text" class="form_control"name="name" id="name" placeholder="Escriba su nombre completo"/>
+          </div>
+      
+          <div class="form_group">
+          <label for="ciudad">Ciudad</label>
+          <input type="text"class="form_control" name="ciudad" id="ciudad" placeholder="Santiago"/>
+          </div>
+
+          <div class="form_group">
+          <label for="email">Email</label>
+          <input type="email"class="form_control" name="email" id="email" placeholder="@gmail.com"/>
+          </div>
+
+          <div class="form_group">
+          <label for="telefono">Telefono</label>
+          <input type="number" class="form_control"name="telefono" id="telefono" placeholder="+56931189636"/>
+          </div> 
+
+          <div class="form_group">
+          <label for="comentario"> Comentario:</label>
+          <input type="text" class="form_control" name="comentario" id="comentario" placeholder="Deje su comentario"/>
+          </div>
+
+        <p>&nbsp;</p>
+        <input type="submit" value="Enviar" id="btnvalida"/> <br>
+      </div>
+      </content>
+      <input type="reset" value="Limpiar" class="btn btn-info"/>
+    </form>
+  </div>
+
+  <hr>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+  <script src="{% static 'app/js/appclima.js' %}"></script>
+  <script src="{% static 'app/js/formvalidation.js' %}"></script>
+  <script src="{% static 'app/js/rutvalidador.js' %} "></script>
+
+{% endblock contenido %}

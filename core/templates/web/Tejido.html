@@ -1,0 +1,108 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block contenido %}
+
+  
+{% block css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+{% endblock css %}
+
+<h1>Nuestros tejidos artesanales</h1>
+  <div class="container"><br>
+    <div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="{% static 'app/img/tejido/corazonestejidos.jpg' %}" 
+        class="card-img-top" alt="tejido">
+        <div class="card-body">
+          <h5 class="card-title">Almohadones de forma de corazón tejidos</h5>
+          <p class="card-text">Creador/a: Vanessa Cáceres<br>
+            Tamaño: 23 cm x 25 cm<br>
+            Color: Multicolor<br>
+            Material del relleno: soft 1a. calidad<br>
+            100% lavables.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="{% static 'app/img/tejido/carteratejida.jpg' %} " 
+        class="card-img-top" alt="bolsa bordadaroja">
+        <div class="card-body">
+          <h5 class="card-title">Bolso tejido artesanal colorido rojo</h5>
+          <p class="card-text">Creador/a: Sebastian Canche
+            <br>
+            Tamaño: 20 cm x 15 cm<br>
+            Color: Rojo</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="{% static 'app/img/tejido/telartejido.jpg' %}" 
+        class="card-img-top" alt="telares andinos">
+        <div class="cardb-ody">
+          <h5 class="card-title">Telares andinos de peru</h5>
+          <p class="card-text">Creador/a: Rodrigo Vázquezbr<br>
+            Tamaño: 1 metro de tela<br>
+            Color: Multicolor</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="{% static 'app/img/tejido/serapetejido.jpg' %} " 
+        class="card-img-top" alt="serape tejido">
+        <div class="card-body">
+          <h5 class="card-title">Hermoso colorido serape tejido artesanal mexicano </h5>
+          <p class="card-text">Creador/a: Eduardo González<br>
+            Talla: S/M/L<br>
+            Color: Multicolor</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="{% static 'app/img/tejido/protectortejido.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Lindo tejido para mate</h5>
+          <p class="card-text">Creador/a: Roberta Muñoz<br>
+            Tamaño: 1 metro de tela<br>
+            Color: Multicolor</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="{% static 'app/img/tejido/ponchotejido.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Poncho con rombos tejidos</h5>
+          <p class="card-text">Creador/a: Vanessa Cáceres<br>
+            Tamaño: 1 metro de tela<br>
+            Color: Multicolor
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+  <hr>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+{% endblock contenido %}

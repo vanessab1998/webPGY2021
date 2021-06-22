@@ -1,0 +1,34 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block contenido %}
+
+  
+{% block css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+{% endblock css %}
+
+
+  <h1>API DE FOTOS</h1><hr>
+      <div class ="container">
+      <button type="button" class="btn btn-info" id="traer-datos">Traer datos</button>
+
+      <div class="card-columns" id="tarjetas">
+        <div class="card">
+            <img src="https://pics.filmaffinity.com/Digimon_Adventure_Serie_de_TV-443354245-large.jpg" class="card-img-top" alt="digimon">
+            <div class="card-body">
+              <h5 class="card-title">DIGIMON</h5>
+              <p class="card-text">Si apreta el botón podrá ver los Digimon</p>
+              <p class="card-text"><small class="text-muted">Conocerás los diferentes tipos de Digimon</small></p>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="{% static 'app/js/miapi.js' %}"></script>
+
+{% endblock contenido %}
