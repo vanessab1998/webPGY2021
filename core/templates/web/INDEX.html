@@ -12,7 +12,7 @@
 <body onload="onLoad()">
 
 <!--CARROUSEL-->
-  <hr></hr>
+  <hr>
   <div class= "container">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <hr></hr>
+  <hr>
   <h1>Quienes somos?</h1>
   <div class="container">
     <div class="row"></div>
@@ -48,11 +48,11 @@
       artísticas que tienen como fin exponer sus trabajos. 
     </div>
     <img class="col-md-5 col-sm-6 col-lg-3"src="{% static 'app/img/quienessomos.jpg' %}" width="260" height="200" alt="joven viendo un cuadro">
-    <a class="btn btn-info" href="pinturas.html" role="button">Nuestros Trabajos</a>
+    <a class="btn btn-info" href="{% url 'pinturas' %}" role="button">Nuestros Trabajos</a>
   </div>
 
   <!--API DEL CLIMA-->
-  <hr></hr>
+  <hr>
   <h1>Api del clima</h1>
   <div class="container">
     <div id="loader" class="loader">Loading...</div>
@@ -106,7 +106,7 @@
   </div>
 
 <!--CARDS SOBRE NUESTROS CUATROS TEMAS *PINTURAS, ORFEBRERIA, TEJIDO,-->
-  <hr></hr>
+  <hr>
 
   <h1>Nuestras expresiones artísticas</h1>
   <div class="container">
@@ -160,7 +160,7 @@
   </div>
 
   <!--SECCION DE NOTICIAS-->
-  <hr></hr>
+  <hr>
   <h1>Noticias de Arte </h1>
   <div class="container">
     <h2>Has click en las imágenes</h2>
@@ -214,7 +214,7 @@
 
 
   <!--DEJAR COMENTARIO-->
-  <hr></hr>
+  <hr>
   <h1>Registro</h1>
   <div class="container">
     <form method="GET" name="comentario">
@@ -226,8 +226,6 @@
         <option value="PASAPORTE">PASAPORTE</option>
         </select>
       </div>
-
-      <content>
       <div id="wrapper" >
         <p>&nbsp;</p>
           <div class="form_group">
@@ -273,7 +271,6 @@
         <p>&nbsp;</p>
         <input type="submit" value="Enviar" id="btnvalida"/> <br>
       </div>
-      </content>
       <input type="reset" value="Limpiar" class="btn btn-info"/>
     </form>
   </div>
