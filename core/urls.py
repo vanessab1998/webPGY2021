@@ -13,10 +13,4 @@ urlpatterns = [
     path("miapi/", views.miapi, name="miapi"),
     path("iniciarsesion/", views.iniciarsesion, name="iniciarsesion"),
     path("registro/", views.registro, name="registro"),
-    path("formvalidation/", views.formvalidation, name="formvalidation"),
-    path("rutvalidador/", views.rutvalidador, name="rutvalidador"),
-    path("appclima/", views.appclima, name="appclima"),
-    path("iniciarsesionjs/", views.iniciarsesion, name="iniciarsesion"),
-    path("miapijs/", views.miapijs, name="miapijs"),
-    path("registrojs/", views.registrojs, name="registrojs"),
     ]

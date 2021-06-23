@@ -24,22 +24,3 @@ def registro(request):
 def iniciarsesion(request):
     return render(request, 'web/iniciarsesion.html')
 
-# Jquery.
-
-def rutvalidador(request):
-    return render(request, 'app/js/rutvalidador.js')
-
-def appclima(request):
-    return render(request, 'app/js/appclima.js')
-
-def formvalidation(request):
-    return render(request, 'app/js/formvalidation.js')
-
-def iniciarsesionjs(request):
-    return render(request, 'app/js/iniciarsesion.js')
-
-def miapijs(request):
-    return render(request, 'app/js/miapi.js')
-
-def registrojs(request):
-    return render(request, 'app/js/registro.js')
