@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
 
-    $('#traer-datos').click(function(){
+    $('traer-datos').click(function(){
         //DIGIMON
         $.get({
             url: 'https://digimon-api.vercel.app/api/digimon',

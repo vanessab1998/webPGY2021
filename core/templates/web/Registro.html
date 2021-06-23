@@ -1,46 +1,48 @@
 {% extends 'web/base.html' %}
 {% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %} 
+{% load widget_tweaks %}
 {% block contenido %}
 
   
 {% block css %}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
-
 {% endblock css %}
+
   <h1>Registrarse</h1><br>
   <div class="container">
-    <form method="GET" name="registro">
+    <form method="POST" name="registro">
+    {% csrf_token %}
         
           <div class="form_group">
           <label for="name"> Nombre completo:</label>
-          <input type="text" class="form_control"name="name" id="name" placeholder="Escriba su nombre completo"/>
+          {{form.nombre |add_class:"form-control"}}
           </div>
           
           <div class="form_group">
             <label for="rut">Ingresa tu rut:</label>
-            <input type="text" class="form_control"name="rut" id="rut" placeholder="xxxxxxxx-x"/>
+            {{form.rut}}
             </div>
-          <div class="form_group">
-          <label for="ciudad">Ciudad</label>
-          <input type="text"class="form_control" name="ciudad" id="ciudad" placeholder="Santiago"/>
-          </div>
 
           <div class="form_group">
           <label for="email">Email</label>
-          <input type="email"class="form_control" name="email" id="email" placeholder="@gmail.com"/>
+          {{form.email}}
           </div>
 
           <div class="form_group">
           <label for="telefono">Telefono</label>
-          <input type="number" class="form_control"name="telefono" id="telefono" placeholder="+56931189636"/>
+          {{form.telefono}}
           </div> 
 
           <div class="form_group">
             <label for="password">Contraseña:</label>
-            <input type="password" class="form_control"name="password" id="password" placeholder="Escribe tu contraseña"/>
+            {{form.contraseña}}
           </div>
 
           <input type="submit" value="Enviar" id="btnvalida"/> <br>
