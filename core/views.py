@@ -51,5 +51,5 @@ def crudusuario(request):
 def borrarusuario(request, email):
     usuarios = usuario.objects.get(email = email)
     usuarios.delete()
-    return redirect(to="crudusuario")
+    return redirect(to="index")
 
