@@ -48,3 +48,8 @@ def crudusuario(request):
     data={'usuarios':usuarios}
     return render(request, 'web/crudusuario.html',data)
 
+def borrarusuario(request, email):
+    usuarios = usuario.objects.get(email = email)
+    usuarios.delete()
+    return redirect(to="crudusuario")
+
