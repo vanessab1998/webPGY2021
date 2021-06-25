@@ -1,0 +1,45 @@
+{% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+
+
+  <h1>Registrarse</h1><br>
+<div class="container">
+    <form method="POST" name="formulario_edit">
+    {% csrf_token %}
+        
+          <div class="form_group">
+          <label for="name"> Nombre completo:</label>
+          {{form.nombre}}
+          </div>
+          
+          <div class="form_group">
+            <label for="rut">Ingresa tu rut:</label>
+            {{form.rut }}
+            </div>
+
+          <div class="form_group">
+          <label for="email">Email</label>
+          {{form.email}}
+          </div>
+
+          <div class="form_group">
+          <label for="telefono">Telefono</label>
+          {{form.telefono}}
+          </div> 
+
+          <div class="form_group">
+            <label for="password">Contraseña:</label>
+            {{form.contraseña }}
+          </div>
+
+          <hr>
+
+          <div class="form_group">
+          <input type="submit" value="Register"  class="btn btn-info btn-block">
+          </div>
+
+    </form>
+  </div>

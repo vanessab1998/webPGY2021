@@ -15,4 +15,5 @@ urlpatterns = [
     path("registro/", views.registro, name="registro"),
     path("crudusuario/", views.crudusuario, name="crudusuario"),
     path("borrarusuario/<email>", views.borrarusuario, name="borrarusuario"),
+    path('editarusuario/<iduser>/', views.editarusuario, name="editarusuario"),
     ]

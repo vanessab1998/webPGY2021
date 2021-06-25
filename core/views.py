@@ -51,5 +51,17 @@ def crudusuario(request):
 def borrarusuario(request, email):
     usuarios = usuario.objects.get(email = email)
     usuarios.delete()
-    return redirect(to="index")
+    return redirect(to="crudusuario")
 
+def editarusuario(request, iduser):
+    usuarios = usuario.objects.get(id=iduser)
+    datos = {
+        'form': registrousuaro(instance=usuarios) 
+        }
+    if request.method == 'POST':
+        formulario_edit = registrousuaro(data=request.POST, instance=usuarios)
+        if formulario_edit.is_valid:
+            formulario_edit.save()
+            datos['mensaje'] = "Usuario editado Correctamente"
+            return redirect('crudusuario')
+    return render(request, 'web/editarusuario.html', datos)
