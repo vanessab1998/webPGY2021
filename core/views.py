@@ -54,7 +54,6 @@ def borrarusuario(request, email):
     usuarios.delete()
     return redirect(to="crudusuario")
 
-
 def editarusuario(request, iduser):
     usuarios = usuario.objects.get(id=iduser)
     datos = {
