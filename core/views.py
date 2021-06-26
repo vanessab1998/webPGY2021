@@ -1,6 +1,7 @@
-from core.models import usuario
+from django.forms import formsets
+from core.models import usuario,comentario
 from django.shortcuts import render,redirect
-from .forms import registrousuaro
+from .forms import registrousuaro,addcomentario
 from django.contrib import messages
 
 # Create your views here.
@@ -51,5 +52,54 @@ def crudusuario(request):
 def borrarusuario(request, email):
     usuarios = usuario.objects.get(email = email)
     usuarios.delete()
-    return redirect(to="index")
+    return redirect(to="crudusuario")
 
+
+def editarusuario(request, iduser):
+    usuarios = usuario.objects.get(id=iduser)
+    datos = {
+        'form': registrousuaro(instance=usuarios) 
+        }
+    if request.method == 'POST':
+        formulario_edit = registrousuaro(data=request.POST, instance=usuarios)
+        if formulario_edit.is_valid:
+            formulario_edit.save()
+            datos['mensaje'] = "Usuario editado Correctamente"
+            return redirect('crudusuario')
+    return render(request, 'web/editarusuario.html', datos)
+
+#comentario
+
+def index(request):
+    datos = {
+        'form': addcomentario() 
+        }
+    if request.method == 'POST':
+        formu = addcomentario(request.POST)
+        if formu.is_valid:
+            formu.save()
+            datos['mensaje'] = "Comentario Agregado Correctamente"
+    return render(request, 'web/index.html', datos)
+
+def crudcomentario(request):
+    comentarios=comentario.objects.all()
+    data={'comentarios':comentarios}
+    return render(request, 'web/crudcomentario.html',data)
+
+def editarcomentario(request, idcomen):
+    comentarios = comentario.objects.get(id=idcomen)
+    datos = {
+        'form': addcomentario(instance=comentarios) 
+        }
+    if request.method == 'POST':
+        formulario_edita = addcomentario(data=request.POST, instance=comentarios)
+        if formulario_edita.is_valid:
+            formulario_edita.save()
+            datos['mensaje'] = "Comentario editado Correctamente"
+            return redirect('crudcomentario')
+    return render(request, 'web/editarcomentario.html', datos)
+
+def borrarcomentario(request, nombre):
+    comentarios = comentario.objects.get(nombre = nombre)
+    comentarios.delete()
+    return redirect(to="crudcomentario")

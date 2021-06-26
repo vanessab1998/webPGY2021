@@ -1,5 +1,5 @@
 body {
-    
+    color: aliceblue;
     background-color: #eee7da;
     background-repeat: no-repeat;
     background-size: 300px;
@@ -269,7 +269,6 @@ h3{
 
 form {
   padding: 20px;
-  
   color: #fff;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -294,6 +293,12 @@ form button {
   cursor: pointer;
 }
 
+#btnvalida2{
+  height: 30px;
+  cursor: pointer;
+  display: block;
+  
+}
 form input {
   height: 25px;
   line-height: 25px;
@@ -389,3 +394,10 @@ ul{
   box-shadow: 3px 3px 0px transparent;
   transition: 0.5s;
   }
+
+.table {
+  background-color: aliceblue;
+  color: rgb(255, 255, 255);
+  align-content: center;
+}
+

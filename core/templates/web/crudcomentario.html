@@ -6,35 +6,32 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     
 <!------ Include the above in your HEAD tag ---------->
-<br>
+
+<h1>lista de comentarios</h1>
 <hr>
 <div class="container">
-    <div class="col-md-6 col-sm col-lg-12 ">
+    <div class="col-md-6 col-sm col-md-2 col-lg-12">
     <table class="table table-striped">
     <thead>
-    <a href="{% url 'registro'%}" class="btn btn-primary btn-xs pull-right"><b>+</b>Agregar nuevo usuario</a>
+    <a href="{% url 'index'%}" class="btn btn-primary btn-xs pull-right"><b>+</b>Agregar nuevo comentario</a>
         <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Rut</th>
-            <th>Telefono</th>
             <th>Email</th>
-            <th>Contraseña</th>
+            <th>Comentario</th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
-        {%for u in usuarios%}
+        {%for c in comentarios%}
             <tr>
-                <td>{{u.id}}</td>
-                <td>{{u.nombre}}</td>
-                <td>{{u.rut}}</td>
-                <td>{{u.telefono}}</td>
-                <td>{{u.email}}</td>
-                <td>{{u.contraseña}}</td>
+                <td>{{c.id}}</td>
+                <td>{{c.nombre}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.comentario}}</td>
 
                 <td class="text-center">
-                <a class='btn btn-info ' href="{% url 'editarusuario' u.id%}"><span class="glyphicon glyphicon-edit"></span> Editar</a> 
-                <a href="{% url 'borrarusuario' u.email%}" class="btn btn-danger "><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                <a class='btn btn-info ' href="{% url 'editarcomentario' c.id%}"><span class="glyphicon glyphicon-edit"></span> Editar</a> 
+                <a href="{% url 'borrarcomentario' c.nombre%}" class="btn btn-danger "><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
             </tr>
         {%endfor%}    
     </table>

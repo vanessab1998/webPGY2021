@@ -12,3 +12,11 @@ class usuario(models.Model):
     def __str__(self):
         return self.nombre
     
+class comentario(models.Model):
+    nombre=models.CharField(max_length=100)
+    email=models.EmailField('email address')
+    comentario=models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.nombre
+

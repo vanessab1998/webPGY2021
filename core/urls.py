@@ -14,5 +14,10 @@ urlpatterns = [
     path("iniciarsesion/", views.iniciarsesion, name="iniciarsesion"),
     path("registro/", views.registro, name="registro"),
     path("crudusuario/", views.crudusuario, name="crudusuario"),
-    path("borrarusuario/<email>", views.borrarusuario, name="borrarusuario"),
+    path("borrarusuario/<email>/", views.borrarusuario, name="borrarusuario"),
+    path('editarusuario/<iduser>/', views.editarusuario, name="editarusuario"),
+    #comentario
+    path('crudcomentario/', views.crudcomentario, name="crudcomentario"),
+    path('editarcomentario/<idcomen>/', views.editarcomentario, name="editarcomentario"),
+    path("borrarcomentario/<nombre>/", views.borrarcomentario, name="borrarcomentario"),
     ]
