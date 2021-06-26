@@ -19,5 +19,5 @@ urlpatterns = [
     #comentario
     path('crudcomentario/', views.crudcomentario, name="crudcomentario"),
     path('editarcomentario/<idcomen>/', views.editarcomentario, name="editarcomentario"),
-    path("borrarcomentario/<nombre>/", views.borrarcomentario, name="borrarcomentario"),
+    path("borrarcomentario/<idcomen>/", views.borrarcomentario, name="borrarcomentario"),
     ]

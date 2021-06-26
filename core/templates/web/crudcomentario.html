@@ -31,7 +31,7 @@
 
                 <td class="text-center">
                 <a class='btn btn-info ' href="{% url 'editarcomentario' c.id%}"><span class="glyphicon glyphicon-edit"></span> Editar</a> 
-                <a href="{% url 'borrarcomentario' c.nombre%}" class="btn btn-danger "><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                <a href="{% url 'borrarcomentario' c.id%}" class="btn btn-danger "><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
             </tr>
         {%endfor%}    
     </table>

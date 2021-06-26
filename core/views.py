@@ -98,7 +98,7 @@ def editarcomentario(request, idcomen):
             return redirect('crudcomentario')
     return render(request, 'web/editarcomentario.html', datos)
 
-def borrarcomentario(request, nombre):
-    comentarios = comentario.objects.get(nombre = nombre)
+def borrarcomentario(request, idcomen):
+    comentarios = comentario.objects.get(id=idcomen)
     comentarios.delete()
     return redirect(to="crudcomentario")
