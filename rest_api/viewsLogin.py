@@ -12,15 +12,15 @@ from rest_framework.authtoken.models import Token
 def login(request):
     data = JSONParser().parse(request)
 
-    email = data['email']
+    username = data['username']
     password = data['password']
 
     try:
-        user = User.objects.get(email=email)
+        user = User.objects.get(username=username)
     except User.DoesNotExist:
         return Response("Usuario Inválido")
     
-    #Validamos el password
+    #Validamos el contraseña
     pass_valido = check_password(password, user.password)
     if not pass_valido:
         return Response("Contraseña incorrecta")
